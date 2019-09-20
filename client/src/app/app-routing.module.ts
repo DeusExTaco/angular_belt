@@ -1,8 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AllPetsComponent } from './all-pets/all-pets.component';
+import { DetailsPetComponent } from './details-pet/details-pet.component';
+import { AddPetComponent } from './add-pet/add-pet.component';
+import { EditPetComponent } from './edit-pet/edit-pet.component';
 
-
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'getAll', component: AllPetsComponent },
+  { path: 'getOne/:id', component: DetailsPetComponent },
+  { path: 'addNew/new', component: AddPetComponent },
+  { path: 'editOne/:id/edit', component: EditPetComponent },
+  { path: '', pathMatch: 'full', redirectTo: '/getAll' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
