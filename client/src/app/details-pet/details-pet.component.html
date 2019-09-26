@@ -1,4 +1,17 @@
 <div class="border m-2 p-2">
-    <h2>Details about [PET NAME]</h2>
-    <a href="#">Home</a>
+    <h2>Details about {{ single.name }}</h2>
+    <a routerLink='/getAll'>Home</a>
+
+    <div>
+        <h3>Pet type: {{ single.type }}</h3>
+        <h3>Description: {{ single.type }}</h3>
+        <h3>Skills:
+            <ul style="list-style-type:none">
+                <li>{{ single.skill_1 }}</li>
+                <li>{{ single.skill_2 }}</li>
+                <li>{{ single.skill_3 }}</li>
+            </ul>
+        </h3>
+    </div>
+    <button class="btn btn-primary" (click)='onButtonClickDelete( single._id )'>Adopt</button>
 </div>

@@ -20,7 +20,6 @@ export class HttpService {
   }
 
   createPet(pet) {
-    console.log('here in http.service');
     const petMap = {
       name: pet.name,
       type: pet.type,

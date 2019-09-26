@@ -24,6 +24,7 @@ export class DetailsPetComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
+      console.log(params);
       this.getPetById(params.id);
     });
   }
@@ -32,5 +33,20 @@ export class DetailsPetComponent implements OnInit {
     observable.subscribe(data => {
       this.single = data;
     });
+  }
+  goHome() {
+    this.router.navigate(['/']);
+  }
+
+  deletePet(id) {
+    const observable = this.HTTPService.deletePet(id);
+    observable.subscribe(data => {
+      console.log('deleted succesfully');
+      this.goHome();
+    });
+  }
+
+  onButtonClickDelete(id: string): void {
+    this.deletePet(id);
   }
 }

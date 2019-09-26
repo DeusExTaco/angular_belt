@@ -22,10 +22,20 @@ export class AllPetsComponent implements OnInit {
   getPets() {
     const observable = this.HTTPService.getPets();
     observable.subscribe((data: any) => {
-      console.log('in get pets');
       this.pets = data;
     });
   }
-}
 
+  deletePet(id) {
+    const observable = this.HTTPService.deletePet(id);
+    observable.subscribe(data => {
+      this.getPets();
+    });
+  }
+
+  onButtonClickDelete(id: string): void {
+    this.deletePet(id);
+  }
+
+}
 

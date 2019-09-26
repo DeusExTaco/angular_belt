@@ -27,11 +27,21 @@ export class AddPetComponent implements OnInit {
   ngOnInit() {
   }
 
-  addPet(pet) {
-    console.log('try again in addpet');
+  goHome() {
+    this.router.navigate(['/']);
+  }
+
+  createPet(pet) {
     const observable = this.HTTPService.createPet(pet);
     observable.subscribe((data: any) => {
-      console.log('added pet', data);
+      console.log(data);
+      if (data.err) {
+        console.log('this was an error', data);
+        this.errors = data.errors;
+      } else {
+        console.log('this was a success', data);
+        this.goHome();
+      }
     });
   }
 }

@@ -29,6 +29,6 @@
                 <label for="skill_3">Skill 3</label>
                 <input type="text" name="newPet.skill_3" [(ngModel)] = "newPet.skill_3">
         </div>
-        <button type="submit" [routerLink]="['addPet', newPet]">Submit</button>
+        <button class="btn btn-primary mr-2" type="submit">Submit</button> <a class="btn btn-primary" routerLink='/getAll'>Cancel</a>
         </form>
 </div>

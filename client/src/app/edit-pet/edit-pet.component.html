@@ -1,4 +1,34 @@
 <div class="border m-2 p-2">
-    <h2>Adit this pet</h2>
-    <a href="#">Home</a>
+        <h2>Edit this pet</h2>
+
+        <div *ngFor="let error of errors"> 
+                {{ error }}
+        </div>
+        <form (submit)="updatePet(editedPet._id, editedPet)" method="POST">
+        <div class="form-group">
+                <label for="name">Pet Name:</label>
+                <input type="text" name="editedPet.name" [(ngModel)] = "editedPet.name">
+        </div>
+        <div class="form-group">
+                <label for="type">Pet Type:</label>
+                <input type="text" name="editedPet.type" [(ngModel)] = "editedPet.type">
+        </div>
+        <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" name="editedPet.description" [(ngModel)] = "editedPet.description">
+        </div>
+        <div class="form-group">
+                <label for="skill_1">Skill 1</label>
+                <input type="text" name="editedPet.skill_1" [(ngModel)] = "editedPet.skill_1">
+        </div>
+        <div class="form-group">
+                <label for="skill_2">Skill 2</label>
+                <input type="text" name="editedPet.skill_2" [(ngModel)] = "editedPet.skill_2">
+        </div>
+        <div class="form-group">
+                <label for="skill_3">Skill 3</label>
+                <input type="text" name="editedPet.skill_3" [(ngModel)] = "editedPet.skill_3">
+        </div>
+        <button class="btn btn-primary mr-2" type="submit">Submit</button> <a class="btn btn-primary" routerLink='/getAll'>Cancel</a>
+        </form>
 </div>

@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"border m-2 p-2\">\n        <h2>Know of a pet needing a home?</h2>\n\n        <div *ngFor=\"let error of errors\"> \n        {{ error }}\n        </div>\n        <form (submit)=\"createPet(newPet)\" method=\"POST\">\n        <div class=\"form-group\">\n                <label for=\"name\">Pet Name:</label>\n                <input type=\"text\" name=\"newPet.name\" [(ngModel)] = \"newPet.name\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"type\">Pet Type:</label>\n                <input type=\"text\" name=\"newPet.type\" [(ngModel)] = \"newPet.type\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"description\">Description</label>\n                <input type=\"text\" name=\"newPet.description\" [(ngModel)] = \"newPet.description\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"skill_1\">Skill 1</label>\n                <input type=\"text\" name=\"newPet.skill_1\" [(ngModel)] = \"newPet.skill_1\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"skill_2\">Skill 2</label>\n                <input type=\"text\" name=\"newPet.skill_2\" [(ngModel)] = \"newPet.skill_2\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"skill_3\">Skill 3</label>\n                <input type=\"text\" name=\"newPet.skill_3\" [(ngModel)] = \"newPet.skill_3\">\n        </div>\n        <button type=\"submit\" [routerLink]=\"['addPet', newPet]\">Submit</button>\n        </form>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"border m-2 p-2\">\n        <h2>Know of a pet needing a home?</h2>\n\n        <div *ngFor=\"let error of errors\"> \n        {{ error }}\n        </div>\n        <form (submit)=\"createPet(newPet)\" method=\"POST\">\n        <div class=\"form-group\">\n                <label for=\"name\">Pet Name:</label>\n                <input type=\"text\" name=\"newPet.name\" [(ngModel)] = \"newPet.name\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"type\">Pet Type:</label>\n                <input type=\"text\" name=\"newPet.type\" [(ngModel)] = \"newPet.type\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"description\">Description</label>\n                <input type=\"text\" name=\"newPet.description\" [(ngModel)] = \"newPet.description\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"skill_1\">Skill 1</label>\n                <input type=\"text\" name=\"newPet.skill_1\" [(ngModel)] = \"newPet.skill_1\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"skill_2\">Skill 2</label>\n                <input type=\"text\" name=\"newPet.skill_2\" [(ngModel)] = \"newPet.skill_2\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"skill_3\">Skill 3</label>\n                <input type=\"text\" name=\"newPet.skill_3\" [(ngModel)] = \"newPet.skill_3\">\n        </div>\n        <button class=\"btn btn-primary mr-2\" type=\"submit\">Submit</button> <a class=\"btn btn-primary\" routerLink='/getAll'>Cancel</a>\n        </form>\n</div>\n");
 
 /***/ }),
 
@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"border m-2 p-2\">\n    <h2>These pets are looking for a home!</h2>\n    <a href=\"#\">Add a pet to the shelter</a>\n\n    <table class=\"table table-primary\">\n        <thead>\n            <th>Name</th>\n            <th>Type</th>\n            <th>Actions</th>\n        </thead>\n        <tbody>\n            <tr *ngFor=\"let pet of pets\">\n                <td>{{ pet.name }}</td>\n                <td>{{ pet.type }}</td>\n                <td>place holder</td>\n            </tr>\n        </tbody>\n    </table>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"border m-2 p-2\">\n    <h2>These pets are looking for a home!</h2>\n    <a routerLink='/addNew'>Add a pet to the shelter</a>\n\n    <table class=\"table table-primary\">\n        <thead>\n            <th>Name</th>\n            <th>Type</th>\n            <th>Actions</th>\n        </thead>\n        <tbody>\n            <tr *ngFor=\"let pet of pets\">\n                <td>{{ pet.name }}</td>\n                <td>{{ pet.type }}</td>\n                <td><button class=\"btn btn-primary\" routerLink='/getOne/{{ pet._id }}'>Details</button></td>\n                <td><button class=\"btn btn-primary\" (click)='onButtonClickDelete( pet._id )'>Adopt</button></td>\n                <td><button class=\"btn btn-primary\" routerLink='/editOne/{{ pet._id }}/edit'>Edit</button></td>            \n            </tr>\n        </tbody>\n    </table>\n</div>");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"border\">\n    <!-- <app-all-pets></app-all-pets>\n    <app-details-pet></app-details-pet>\n    <app-edit-pet></app-edit-pet>\n    <app-add-pet></app-add-pet> -->\n    <router-outlet></router-outlet>\n</div>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"border\">\n    <router-outlet></router-outlet>\n</div>\n\n\n");
 
 /***/ }),
 
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"border m-2 p-2\">\n    <h2>Details about [PET NAME]</h2>\n    <a href=\"#\">Home</a>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"border m-2 p-2\">\n    <h2>Details about {{ single.name }}</h2>\n    <a routerLink='/getAll'>Home</a>\n\n    <div>\n        <h3>Pet type: {{ single.type }}</h3>\n        <h3>Description: {{ single.type }}</h3>\n        <h3>Skills:\n            <ul style=\"list-style-type:none\">\n                <li>{{ single.skill_1 }}</li>\n                <li>{{ single.skill_2 }}</li>\n                <li>{{ single.skill_3 }}</li>\n            </ul>\n        </h3>\n    </div>\n    <button class=\"btn btn-primary\" (click)='onButtonClickDelete( single._id )'>Adopt</button>\n</div>\n");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"border m-2 p-2\">\n    <h2>Adit this pet</h2>\n    <a href=\"#\">Home</a>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"border m-2 p-2\">\n        <h2>Edit this pet</h2>\n\n        <div *ngFor=\"let error of errors\"> \n                {{ error }}\n        </div>\n        <form (submit)=\"updatePet(editedPet._id, editedPet)\" method=\"POST\">\n        <div class=\"form-group\">\n                <label for=\"name\">Pet Name:</label>\n                <input type=\"text\" name=\"editedPet.name\" [(ngModel)] = \"editedPet.name\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"type\">Pet Type:</label>\n                <input type=\"text\" name=\"editedPet.type\" [(ngModel)] = \"editedPet.type\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"description\">Description</label>\n                <input type=\"text\" name=\"editedPet.description\" [(ngModel)] = \"editedPet.description\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"skill_1\">Skill 1</label>\n                <input type=\"text\" name=\"editedPet.skill_1\" [(ngModel)] = \"editedPet.skill_1\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"skill_2\">Skill 2</label>\n                <input type=\"text\" name=\"editedPet.skill_2\" [(ngModel)] = \"editedPet.skill_2\">\n        </div>\n        <div class=\"form-group\">\n                <label for=\"skill_3\">Skill 3</label>\n                <input type=\"text\" name=\"editedPet.skill_3\" [(ngModel)] = \"editedPet.skill_3\">\n        </div>\n        <button class=\"btn btn-primary mr-2\" type=\"submit\">Submit</button> <a class=\"btn btn-primary\" routerLink='/getAll'>Cancel</a>\n        </form>\n</div>\n");
 
 /***/ }),
 
@@ -365,11 +365,21 @@ let AddPetComponent = class AddPetComponent {
     }
     ngOnInit() {
     }
-    addPet(pet) {
-        console.log('try again in addpet');
+    goHome() {
+        this.router.navigate(['/']);
+    }
+    createPet(pet) {
         const observable = this.HTTPService.createPet(pet);
         observable.subscribe((data) => {
-            console.log('added pet', data);
+            console.log(data);
+            if (data.err) {
+                console.log('this was an error', data);
+                this.errors = data.errors;
+            }
+            else {
+                console.log('this was a success', data);
+                this.goHome();
+            }
         });
     }
 };
@@ -435,9 +445,17 @@ let AllPetsComponent = class AllPetsComponent {
     getPets() {
         const observable = this.HTTPService.getPets();
         observable.subscribe((data) => {
-            console.log('in get pets');
             this.pets = data;
         });
+    }
+    deletePet(id) {
+        const observable = this.HTTPService.deletePet(id);
+        observable.subscribe(data => {
+            this.getPets();
+        });
+    }
+    onButtonClickDelete(id) {
+        this.deletePet(id);
     }
 };
 AllPetsComponent.ctorParameters = () => [
@@ -484,7 +502,7 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: 'getAll', component: _all_pets_all_pets_component__WEBPACK_IMPORTED_MODULE_3__["AllPetsComponent"] },
     { path: 'getOne/:id', component: _details_pet_details_pet_component__WEBPACK_IMPORTED_MODULE_4__["DetailsPetComponent"] },
-    { path: 'addNew/new', component: _add_pet_add_pet_component__WEBPACK_IMPORTED_MODULE_5__["AddPetComponent"] },
+    { path: 'addNew', component: _add_pet_add_pet_component__WEBPACK_IMPORTED_MODULE_5__["AddPetComponent"] },
     { path: 'editOne/:id/edit', component: _edit_pet_edit_pet_component__WEBPACK_IMPORTED_MODULE_6__["EditPetComponent"] },
     { path: '', pathMatch: 'full', redirectTo: '/getAll' }
 ];
@@ -559,68 +577,14 @@ let AppComponent = class AppComponent {
             this.pets = data;
         });
     }
-    onButtonClickGetAll() {
-        this.getPets();
-    }
-    getPetById(id) {
-        const observable = this.HTTP.getPetById(id);
-        observable.subscribe(data => {
-            this.single = data;
-        });
-    }
-    onButtonClickGetOne(id) {
-        this.showDetails = true;
-        this.getPetById(id);
-    }
     deletePet(id) {
         const observable = this.HTTP.deletePet(id);
         observable.subscribe(data => {
             this.getPets();
-            this.success = 'successful delete';
         });
     }
     onButtonClickDelete(id) {
         this.deletePet(id);
-    }
-    createPet(pet) {
-        const observable = this.HTTP.createPet(pet);
-        observable.subscribe((data) => {
-            console.log(data);
-            console.log('in app.compoent');
-            this.getPets();
-            // this.newPet = {title: '', desc: ''};
-            if (data.err) {
-                console.log('this was an error', data);
-                this.errors = data.errors;
-            }
-            else {
-                console.log('this was a success', data);
-                this.success = 'you created a message';
-            }
-        });
-    }
-    updatePet(id, pet) {
-        const observable = this.HTTP.updatePet(id, pet);
-        observable.subscribe(data => {
-            this.getPets();
-        });
-        this.showForm = false;
-    }
-    onButtonClickUpdate(id, pet) {
-        this.showForm = true;
-        this.editedPet = {
-            title: pet.title,
-            desc: pet.desc
-        };
-        this.editId = id;
-    }
-    onButtonClickCancelEdit() {
-        this.showForm = false;
-        this.editedPet = {
-            title: '',
-            desc: ''
-        };
-        this.editId = '';
     }
 };
 AppComponent.ctorParameters = () => [
@@ -743,6 +707,7 @@ let DetailsPetComponent = class DetailsPetComponent {
     }
     ngOnInit() {
         this.route.params.subscribe((params) => {
+            console.log(params);
             this.getPetById(params.id);
         });
     }
@@ -751,6 +716,19 @@ let DetailsPetComponent = class DetailsPetComponent {
         observable.subscribe(data => {
             this.single = data;
         });
+    }
+    goHome() {
+        this.router.navigate(['/']);
+    }
+    deletePet(id) {
+        const observable = this.HTTPService.deletePet(id);
+        observable.subscribe(data => {
+            console.log('deleted succesfully');
+            this.goHome();
+        });
+    }
+    onButtonClickDelete(id) {
+        this.deletePet(id);
     }
 };
 DetailsPetComponent.ctorParameters = () => [
@@ -795,13 +773,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditPetComponent", function() { return EditPetComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+
+
 
 
 let EditPetComponent = class EditPetComponent {
-    constructor() { }
+    constructor(route, router, HTTPService) {
+        this.route = route;
+        this.router = router;
+        this.HTTPService = HTTPService;
+        this.errors = [];
+        this.editedPet = {
+            name: '',
+            type: '',
+            description: '',
+            skill_1: '',
+            skill_2: '',
+            skill_3: ''
+        };
+    }
     ngOnInit() {
+        this.route.params.subscribe((params) => {
+            this.getPetById(params.id);
+        });
+    }
+    getPetById(id) {
+        const observable = this.HTTPService.getPetById(id);
+        observable.subscribe(data => {
+            this.editedPet = data;
+        });
+    }
+    goHome() {
+        this.router.navigate(['/']);
+    }
+    updatePet(id, pet) {
+        const observable = this.HTTPService.updatePet(id, pet);
+        observable.subscribe((data) => {
+            console.log(data);
+            if (data.err) {
+                console.log('this was an error', data);
+                this.errors = data.errors;
+            }
+            else {
+                console.log('this was a success', data);
+                this.goHome();
+            }
+        });
     }
 };
+EditPetComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"] }
+];
 EditPetComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-edit-pet',
@@ -810,6 +836,10 @@ EditPetComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     })
 ], EditPetComponent);
 
+// observable.subscribe(data => {
+//   this.router.navigate(['/editOne/' + id + '/edit']);
+//   // this.goHome();
+// });
 
 
 /***/ }),
@@ -841,7 +871,6 @@ let HttpService = class HttpService {
         return this.HTTP.get(`/pets/${id}`);
     }
     createPet(pet) {
-        console.log('here in http.service');
         const petMap = {
             name: pet.name,
             type: pet.type,
