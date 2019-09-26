@@ -13,7 +13,7 @@ app.use(parser.json())
 
 // static content must go above routes
 require('./server/config/database.js'); // connects database and loads models
-// require('./server/config/routes.js')(app); // runs the routes function, passes app to routes
+require('./server/config/routes')(app); // runs the routes function, passes app to routes
 
 // app.listen
 app.listen(8003, function(){
